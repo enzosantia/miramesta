@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bungee+Spice&family=Dancing+Script&family=Roboto:ital,wght@1,100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/style.css">
+    <title>Cine</title>
+</head>
+<body>
+    <div id="contenedor">
+        <div id="encabezado">
+        </div>
+        <div id="menu">
+            <ul class="menu-list">
+                <li class="menu-item"><a href="html/form.html">Inicio Sesion</a></li>
+                <li class="menu-item"><a href="html/productos.html">Productos y servicios</a></li>
+                <li class="menu-item"><a href="html/CRUD/index.html">Sistema</a></li>
+                <li class="menu-item"><a href="html/acercade.html">Sobre nosotros</a></li>
+            </ul>
+            <div class="imagene"><img src="img/pngwing.com (9).png"></div>
+        </div>
+        <div id="contenido">
+            <div id="botones">
+                <button ><a href="html/tablaToppeliculas.html">Top Peliculas</a></button>
+                <button ><a href="html/galeriaPeliculas.html">Peliculas</a></button>
+                <button ><a href="html/tablaTopseries.html">Top Series</a></button>
+                <button ><a href="html/galeriaSeries.html">Series</a></button>
+            </div>
+            <div id="estrenos">
+                <div>
+                    <div id="item"><p><img src="img/capitan.jpg" alt="Banner de la pelicula capitan america" title="Poster de la pelicula">Estreno 14 de febrero del 2025</p></div>
+                    <div id="item"><p><img src="img/avengers.webp" alt="Banner de la pelicula Avengers" title="Poster de la pelicula">Estreno 1 de mayo de 2026</p></div>
+                    <div id="item"><p><img src="img/anillo.jpeg" alt="Banner de la pelicula señor de los anillos" title="Poster de la pelicula">Estreno 13 de diciembre de 2024</p></div>
+                </div>
+                <div>
+                    <div id="item"><p><img src="img/planet.jpg" alt="Banner de la pelicula planeta de los simios" title="Poster de la pelicula">Estreno 23 de mayo de 2024</p></div>
+                    <div id="item"><p><img src="img/Dune.jpg" alt="Banner de la pelicula dune" title="Poster de la pelicula">Estreno 14 de marzo de 2024</p></div>
+                    <div id="item"><p><img src="img/deadpool.jpg" alt="Banner de la pelicula deadpool" title="Poster de la pelicula">Estreno 26 de julio de 2024</p></div>
+                </div>
+                <div>
+                    <div id="item"><p><img src="img/kraven.jpg" alt="Banner de la pelicula kraven" title="Poster de la pelicula">Estreno 29 de agosto de 2024</p></div>
+                    <div id="item"><p><img src="img/night.jpg" alt="Banner de la pelicula night swin" title="Poster de la pelicula">Estreno 4 de enero de 2024</p></div>
+                    <div id="item"><p><img src="img/kung.jpg" alt="Banner de la pelicula kung fu panda 4" title="Poster de la pelicula">Estreno 8 de marzo de 2024</p></div>
+                </div>
+            </div>
+        </div>
+        <div id="pie">
+            <ul class="pie-list">
+                <li class="pie-item">epet20@gmail.com</li>
+                <li class="pie-item">4421345</li>
+                <li class="pie-item">lanin 2020</li>
+                <li class="pie-item"><a href="http://tallerpweb.com.ar">tallerpweb.com.ar</a></li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        var botonVolver = document.getElementById("btn-volver");
+    
+        window.addEventListener("scroll", function() {
+            if (window.scrollY > 200) { 
+                botonVolver.style.display = "block";
+            } else {
+                botonVolver.style.display = "none";
+            }
+        });
+    
+        botonVolver.addEventListener("click", function() {
+            window.scrollTo(0, 0); 
+        });
+    </script>
+    
+</body>
+</html>

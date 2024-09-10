@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bungee+Spice&family=Dancing+Script&family=Roboto:ital,wght@1,100&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="CSS/style.css">
+	<title>Top Series</title>
+</head>
+<body>
+<div id="contenedor">
+	<div id="menu">
+		<ul class="menu-list">
+			<li class="menu-item"><a href="form.html">Inicio Sesion</a></li>
+			<li class="menu-item"><a href="productos.html">Productos y servicios</a></li>
+			<li class="menu-item"><a href="CRUD/index.html">Sistema</a></li>
+			<li class="menu-item"><a href="acercade.html">Sobre nosotros</a></li>
+		</ul>
+	</div>
+	<button id="btn-volver">Volver al Inicio</button>
+	<div id="contenido">
+		<table border="2" summary="10 Mejores series"> 
+			<thead>
+			<caption> TOPS 5 LAS MEJORES SERIES </caption>
+				<tr>
+					<th> N° </th>
+					<th> Titulo </th>
+					<th> Director </th>
+					<th> Genero </th>
+					<th> Episodios </th>
+					<th> Poster </th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td> 1 </td>
+					<td>The last of us </td>
+					<td> Amanda Rynda</td>
+					<td> Comedia</td>
+					<td> 7 temporadas, 22 capitulos</td>
+					<td><a href="https://youtu.be/yyGetSp7CIc?si=DIi1q2iqdjvVMFa3"><img src="img/TWD.jpeg" alt="tlou" title="trailer" width="150" height="200" /></a></td>
+				</tr>
+				<tr>
+					<td> 2 </td>
+					<td>Game on thrones</td>
+					<td>Mark Mylod, Alex Graves, David Nutter, <br/>
+						 Miguel Sapochnik, más... </td>
+					<td>Drama </td>
+					<td> 8 temporadas, 73 capitulos</td>
+					<td><a href="https://youtu.be/kDIlADvnC_s?si=pBv5sAJRUB5KvLtt"><img src="img/GOT.jpg" alt="game" title="trailer" width="150" height="200" /></a></td>
+				</tr>
+				<tr>
+					<td> 3 </td>
+					<td>House of dragons</td>
+					<td>Clare Kilner, Geeta Patel, más... </td>
+					<td>Drama </td>
+					<td> 1 temporada, 10 capitulos</td>
+					<td><a href="https://youtu.be/M4XqQhm0Gq8?si=mUK_w0PSfuu1FeZ-"><img src="img/HOD.jpeg" alt="drag" title="trailer" width="150" height="200" /></a></td>
+				</tr>
+				<tr>
+					<td> 4 </td>
+					<td>Breaking bad </td>
+					<td>Vance Gilligan, Michael Slovis, más... </td>
+					<td> Drama</td>
+					<td> 5 temporadas, 62 capitulos</td>
+					<td><a href="https://youtu.be/ceqOTZnhgY8?si=PMAi8G6MxjkLF6uH"><img src="img/BD.jpeg" alt="bad" title="trailer" width="150" height="200" /></a></td>
+				</tr>
+				<tr>
+					<td> 5 </td>
+					<td>The Walking Dead </td>
+					<td>Frank Árpád Darabont </td>
+					<td>Terror, Suspenso </td>
+					<td> 11 temporadas, 177 capitulos</td>
+					 <td><a href="https://youtu.be/aQvmRkxqceA?si=jmibcaDD8LtuOUUu"><img src="img/TWD.jpeg" alt="twd" title="trailer" width="150" height="200" /></a></td>
+				</tr>
+		    </tbody>
+		</table>
+	</div>
+	<div id="pie">
+		<ul class="pie-list">
+			<li class="pie-item">epet20@gmail.com</li>
+			<li class="pie-item">4421345</li>
+			<li class="pie-item">lanin 2020</li>
+			<li class="pie-item"><a href="http://tallerpweb.com.ar">tallerpweb.com.ar</a></li>
+		</ul>
+	</div>
+</div>
+<script>
+	var botonVolver = document.getElementById("btn-volver");
+
+	window.addEventListener("scroll", function() {
+	if (window.scrollY > 200) { 
+		botonVolver.style.display = "block";
+	} else {
+		botonVolver.style.display = "none";
+	}
+	});
+
+	botonVolver.addEventListener("click", function() {
+	window.scrollTo(0, 0); 
+	});
+</script>
+
+</body>
+</html>

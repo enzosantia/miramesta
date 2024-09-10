@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bungee+Spice&family=Dancing+Script&family=Roboto:ital,wght@1,100&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="CSS/style.css">
+	<title>Top Peliculas</title>
+</head>
+<body>
+<div id="contenedor">
+	<div id="menu">
+		<ul class="menu-list">
+			<li class="menu-item"><a href="form.html">Inicio Sesion</a></li>
+      		<li class="menu-item"><a href="productos.html">Productos y servicios</a></li>
+        	<li class="menu-item"><a href="CRUD/index.html">Sistema</a></li>
+        	<li class="menu-item"><a href="acercade.html">Sobre nosotros</a></li>
+		</ul>
+	</div>
+	<button id="btn-volver">Volver al Inicio</button>
+	<div id="contenido">
+		<table border="2" summary="10 Mejores peliculas"> 
+			<thead>
+			<caption> TOPS 5 LAS MEJORES PELICULAS </caption>
+				<tr>
+					<th> N° </th>
+					<th> Titulo </th>
+					<th> Director </th>
+					<th> Genero </th>
+					<th> Duracion </th>
+					<th> Poster </th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td> 1 </td>
+					<td>Fragmentado </td>
+					<td> M. Night Shyamalan</td>
+					<td> Suspenso, terror</td>
+					<td> 1h 57m</td>
+					<td><a href="https://youtu.be/GTnNVq99qdE?si=P7XT68FwKlopioyd"><img src="img/frag" alt="frag" title="trailer" width="150" height="200" /></a></td>
+				</tr>
+				<tr>
+					<td> 2 </td>
+					<td>Avatar El camino del agua </td>
+					<td> James Cameron</td>
+					<td> Ciencia ficcion, accion</td>
+					<td> 3h 12m</td>
+					<td><a href="https://youtu.be/kPMi_VxqcUc?si=1m9fQ3bctHQ_OZcm"><img src="img/av2" alt="avatar" title="trailer" width="150" height="200" /></a></td>
+				</tr>
+				<tr>
+					<td> 3 </td>
+					<td>Babylon </td>
+					<td> Damien Chazelle</td>
+					<td> Drama, Comedia</td>
+					<td> 3h 9m</td>
+					 <td><a href="https://youtu.be/OjSG2XyKSzA?si=nx6qCMZyCOo1VpbY"><img src="img/by" alt="baby" title="trailer" width="150" height="200" /></a></td>
+				</tr>
+				<tr>
+					<td> 4 </td>
+					<td>Avengers end game </td>
+					<td> Anthony Russo, Joe Russe</td>
+					<td> Accion, Ciencia Ficcion</td>
+					<td> 3h 2m</td>
+					<td><a href="https://youtu.be/AMSITikqKiM?si=F7zq4tEFXPTKH3tR"><img src="img/avengers.webp" alt="aveng" title="trailer" width="150" height="200" /></a></td>
+				</tr>
+				<tr>
+					<td> 5 </td>
+					<td>La monja 2 </td>
+					<td> Michael Chaves</td>
+					<td> Terror, Suspenso</td>
+					<td> 1h 50m</td>
+					 <td><a href="https://youtu.be/Em7wEqLzDnE?si=54uyIi2xPOG_AfPS"><img src="img/lm" alt="monja" title="trailer" width="150" height="200" /></a></td>
+				</tr>
+			</tbody>
+			</table>
+	</div>
+	<div id="pie">
+		<ul class="pie-list">
+			<li class="pie-item">epet20@gmail.com</li>
+			<li class="pie-item">4421345</li>
+			<li class="pie-item">lanin 2020</li>
+			<li class="pie-item"><a href="http://tallerpweb.com.ar">tallerpweb.com.ar</a></li>
+		</ul>
+	</div>
+</div>
+<script>
+	var botonVolver = document.getElementById("btn-volver");
+
+	window.addEventListener("scroll", function() {
+		if (window.scrollY > 200) { 
+			botonVolver.style.display = "block";
+		} else {
+			botonVolver.style.display = "none";
+		}
+	});
+
+	botonVolver.addEventListener("click", function() {
+		window.scrollTo(0, 0); 
+	});
+</script>
+
+</body>
+</html>
