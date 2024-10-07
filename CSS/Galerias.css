@@ -9,7 +9,7 @@
     overflow: hidden;
 }
 .imagen:hover {
-    background-color: #57058e; /* Cambia el color de fondo en el hover */
+    background-color: #57058e;
 }
 .imagen::after {
 opacity: 0.7;
