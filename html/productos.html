@@ -4,8 +4,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bungee+Spice&family=Dancing+Script&family=Roboto:ital,wght@1,100&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../CSS/style.css">
     <link rel="stylesheet" href="../CSS/Productos.css">
-    <title>Suscripciones</title>
+    <title>Carrito de Compras</title>
 </head>
+<body>
 <div id="contenedor">
     <div id="menu">
         <ul class="menu-list">
@@ -15,154 +16,87 @@
             <li class="menu-item"><a href="acercade.html">Sobre nosotros</a></li>
         </ul>
     </div>
+    
     <div id="contenido2">
-        <h2>Toque el enlace si quiere encontrar alguno de estos servicios:</h2>
-        <p id="p1">Nuestros productos:</p>
-        
+        <h2>Nuestros productos:</h2>
 
         <div class="publicidades">
-        <div class="publicidad1"> 
-        <a href="https://articulo.mercadolibre.com.mx/MLM-630136405-playera-yazbek-edicion-movie-pelicula-los-increibles-2-_JM">
-            <img src="../img/img-product/remera 1.jpg" alt="Texto alternativo de la imagen"  name="producto1" width="250" height="300" />
-        </a>
+            <div class="publicidad1"> 
+                <a onclick="addToCart('Pochoclo', 200)">
+                    <img src="../img/carrito/pochoclo.jpeg" alt="Playera Los Increíbles" name="producto1" width="150" height="200" />
+                </a>
+                
+            </div>
+            <div class="publicidad2"> 
+                <a onclick="addToCart('Cocacola', 300)">
+                    <img src="../img/carrito/coca.jpeg" alt="Funko Pop Iron Man" name="producto2" width="150" height="200"/>
+                </a>
+            </div>
+            <div class="publicidad3"> 
+                <a onclick="addToCart('Cocacola', 300)">
+                    <img src="../img/carrito/agua.jpeg" alt="Funko Pop Iron Man" name="producto2" width="150" height="200"/>
+                </a>
+            </div>
+            <div class="publicidad4"> 
+                <a onclick="addToCart('Cocacola', 300)">
+                    <img src="../img/carrito/doritos.jpeg" alt="Funko Pop Iron Man" name="producto2" width="150" height="200"/>
+                </a>
+            </div>
+            <div class="publicidad5"> 
+                <a onclick="addToCart('Cocacola', 300)">
+                    <img src="../img/carrito/lays.jpeg" alt="Funko Pop Iron Man" name="producto2" width="150" height="200"/>
+                </a>
+            </div>
+            <div class="publicidad6"> 
+                <a onclick="addToCart('Cocacola', 300)">
+                    <img src="../img/carrito/sprite.jpeg" alt="Funko Pop Iron Man" name="producto2" width="150" height="200"/>
+                </a>
+            </div>
+            <div id="carrito-container">
+                <h3>Carrito de compras</h3>
+                <ul id="carrito-list"></ul>
+                <p id="total">Total: $0</p>
+                <button onclick="vaciarCarrito()">Vaciar Carrito</button>
+            </div>
         </div>
-        <div class="publicidad2"> 
-        <a href="https://gettoshopmx.com/products/funko-pop-avengers-endgame-i-am-iron-man" >
-            <img src="../img/img-product/producto iron man.jpg" alt="Texto alternativo de la imagen"  name="producto2" width="250" height="300"/>
-        </a>
-        </div>
-        <div class="publicidad3"> 
-        <a href="https://articulo.mercadolibre.com.mx/MLM-1408858950-remate-playeras-de-pelicula-_JM">
-            <img src="../img/img-product/remera 2.jpg" alt="Texto alternativo de la imagen"  name="producto3" width="250" height="300"/>
-        </a>
-        </div>
-        <div class="publicidad4"> 
-        <a href="https://gettoshopmx.com/products/funko-pop-harry-potter-harry-potter-01">
-            <img src="../img/img-product/producto 2.jpg" alt="Texto alternativo de la imagen" name="producto4" width="250" height="300"/>
-        </a>
-        </div>
-        <div class="publicidad5"> 
-        <a href="https://articulo.mercadolibre.com.mx/MLM-595380428-playera-yazbek-para-dama-edicion-pelicula-top-gun-_JM?pp=0">
-            <img src="../img/img-product/remera 3.jpg" alt="Texto alternativo de la imagen" name="producto5" width="250" height="300"/>
-        </a>
-        </div>
-        <div class="publicidad6"> 
-        <a href="https://articulo.mercadolibre.com.mx/MLM-567200780-playera-cobra-kai-serie-youtube-envio-gratis-a-todo-mexico-_JM">
-            <img src="../img/img-product/remera 4.jpg" alt="Texto alternativo de la imagen" name="producto6" width="250" height="300"/>
-        </a>
-        </div>
-        <div class="publicidad7"> 
-        <a href="https://articulo.mercadolibre.com.mx/MLM-632110792-playera-hombre-yazbek-edicion-thundercats-envio-gratis-_JM">
-            <img src="../img/img-product/remera 5.jpg" alt="Texto alternativo de la imagen" name="producto7" width="250" height="300"/>
-        </a>
-        </div>
-        <div class="publicidad8"> 
-        <a href="https://articulo.mercadolibre.com.mx/MLM-591242541-sudadera-yazbek-rocky-con-capucha-y-cangurera-envio-gratis-_JM?">
-            <img src="../img/img-product/remera 6.jpg" alt="Texto alternativo de la imagen"  name="producto8" width="250" height="300"/>
-        </a>
     </div>
 </div>
-<div>
-<ul class="streaming-list">
-    <li class="streaming-item">
-        HBO
-        <ul class="sub-list">
-            <li>Friends</li>
-            <li>The Sopranos</li>
-            <li>Game of Thrones</li>
-            <li>The Big Bang Theory</li>
-        </ul>
-        <a class="streaming-link" href="https://www.hbo.com/">Visitar HBO</a>
-    </li>
 
-    <li class="streaming-item">
-        Netflix
-        <ul class="sub-list">
-            <li>Stranger Things</li>
-            <li>The Crown</li>
-            <li>Black Mirror</li>
-            <li>Narcos</li>
-        </ul>
-        <a class="streaming-link" href="https://www.netflix.com/">Visitar Netflix</a>
-    </li>
-
-    <li class="streaming-item">
-        Amazon Prime Video
-        <ul class="sub-list">
-            <li>The Marvelous Mrs. Maisel</li>
-            <li>The Boys</li>
-            <li>Fleabag</li>
-            <li>The Expanse</li>
-        </ul>
-        <a class="streaming-link" href="https://www.amazon.com/Prime-Video">Visitar Amazon Prime Video</a>
-    </li>
-
-    <li class="streaming-item">
-        Star Plus
-        <ul class="sub-list">
-            <li>Upgrade</li>
-            <li>Pet Sematary</li>
-            <li>Miguel quiere pelear</li>
-            <li>La uruguaya</li>
-        </ul>
-        <a class="streaming-link" href="https://www.starplus.com/es-ar">Visitar Star Plus</a>
-    </li>
-
-    <li class="streaming-item">
-        Disney Plus
-        <ul class="sub-list">
-            <li>101 dalmatas</li>
-            <li>Bolt</li>
-            <li>Star Wars</li>
-            <li>Cars</li>
-        </ul>
-        <a class="streaming-link" href="https://www.disneyplus.com">Visitar Disney Plus</a>
-    </li>
-
-    <li class="streaming-item">
-        Paramount
-        <ul class="sub-list">
-            <li>Forest Gump</li>
-            <li>Transformers</li>
-            <li>Star Trek</li>
-            <li>Indiana Jones</li>
-        </ul>
-        <a class="streaming-link" href="https://www.paramountplus.com/">Visitar Paramount</a>
-    </li>
-
-    <li class="streaming-item">
-        Apple
-        <ul class="sub-list">
-            <li>Ted Lasso</li>
-            <li>Cherry</li>
-            <li>See</li>
-            <li>Servant</li>
-        </ul>
-        <a class="streaming-link" href="https://www.apple.com/la/apple-tv-plus/">Visitar Apple</a>
-    </li>
-
-    <li class="streaming-item">
-        Movistar
-        <ul class="sub-list">
-            <li>Insidius</li>
-            <li>Diabolik</li>
-            <li>Bisbal</li>
-            <li>Asterix</li>
-        </ul>
-        <a class="streaming-link" href="https://tv.movistar.com.ar/">Visitar Movistar</a>
-    </li>
-</ul>
+<div id="pie">
+    <ul class="pie-list">
+        <li class="pie-item">epet20@gmail.com</li>
+        <li class="pie-item">4421345</li>
+        <li class="pie-item">lanin 2020</li>
+        <li class="pie-item"><a href="http://tallerpweb.com.ar">tallerpweb.com.ar</a></li>
+    </ul>
 </div>
-    </div>
-    </div>
-    <div id="pie">
-        <ul class="pie-list">
-            <li class="pie-item">epet20@gmail.com</li>
-            <li class="pie-item">4421345</li>
-            <li class="pie-item">lanin 2020</li>
-            <li class="pie-item"><a href="http://tallerpweb.com.ar">tallerpweb.com.ar</a></li>
-        </ul>
-    </div>
-</div>
+
+<script>
+    let carrito = [];
+    let total = 0;
+
+    function addToCart(producto, precio) {
+        carrito.push({producto, precio});
+        total += precio;
+        actualizarCarrito();
+    }
+
+    function actualizarCarrito() {
+        const carritoList = document.getElementById('carrito-list');
+        carritoList.innerHTML = '';
+        carrito.forEach((item, index) => {
+            const li = document.createElement('li');
+            li.textContent = `${item.producto} - $${item.precio}`;
+            carritoList.appendChild(li);
+        });
+        document.getElementById('total').textContent = `Total: $${total}`;
+    }
+
+    function vaciarCarrito() {
+        carrito = [];
+        total = 0;
+        actualizarCarrito();
+    }
+</script>
 </body>
 </html>

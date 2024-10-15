@@ -1,98 +1,33 @@
-.publicidad1:hover{
-    box-shadow: 1px 4px 20px rgba(248, 240, 248, 0.9);
+/* Estilos de los productos (carrito de compras) */
+.publicidades {
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 10px; 
 }
-.publicidad2:hover{
-    box-shadow: 1px 4px 20px rgba(248, 240, 248, 0.9);
-}
-.publicidad3:hover{
-    box-shadow: 1px 4px 20px rgba(248, 240, 248, 0.9);
-}
-.publicidad4:hover{
-    box-shadow: 1px 4px 20px rgba(248, 240, 248, 0.9);
-}
-.publicidad5:hover{
-    box-shadow: 1px 4px 20px rgba(248, 240, 248, 0.9);
-}
-.publicidad6:hover{
-    box-shadow: 1px 4px 20px rgba(248, 240, 248, 0.9);
-}
-.publicidad7:hover{
-    box-shadow: 1px 4px 20px rgba(248, 240, 248, 0.9);
-}
-.publicidad8:hover{
-    box-shadow: 1px 4px 20px rgba(248, 240, 248, 0.9);
-}
-.publicidad1:hover{
-    box-shadow: 1px 4px 20px rgba(248, 240, 248, 0.9);
-}
-#contenido2 img{
-    border-radius: 20px;
-}
-.publicidad1 {
-    float: left; 
-    margin: 50px 20px 20px 70px; 
-    padding: 10px;      
-    background-color: #333; 
-    border-radius: 20px;
-    box-shadow: 1px 4px 20px rgba(0, 0, 0, 0.9); 
-}
-.publicidad2 {
-    float: left; 
-    margin: 400px 0px 20px -290px; 
-    padding: 10px;      
-    background-color: #333; 
+
+.publicidad1, .publicidad2, .publicidad3, .publicidad4, .publicidad5, .publicidad6, .publicidad7, .publicidad8 {
+    margin: 15px; 
+    padding: 10px;
+    background-color: #333;
     border-radius: 20px;
     box-shadow: 1px 4px 20px rgba(0, 0, 0, 0.9);
+    transition: box-shadow 0.3s ease;
 }
-.publicidad3 {
-    float: right; 
-    margin: 50px 70px 20px 20px; 
-    padding: 10px;      
-    background-color: #333; 
+
+.publicidad1:hover, .publicidad2:hover, .publicidad3:hover, .publicidad4:hover, 
+.publicidad5:hover, .publicidad6:hover, .publicidad7:hover, .publicidad8:hover {
+    box-shadow: 1px 4px 20px rgba(248, 240, 248, 0.9);
+}
+
+#contenido2 img {
     border-radius: 20px;
-    box-shadow: 1px 4px 20px rgba(0, 0, 0, 0.9);
+    width: 250px; 
+    height: 300px; 
 }
-.publicidad4 {
-    float: right; 
-    margin: 400px -290px 20px 0px; 
-    padding: 10px;      
-    background-color: #333; 
-    border-radius: 20px;
-    box-shadow: 1px 4px 20px rgba(0, 0, 0, 0.9);
-}
-.publicidad5 {
-    float: left; 
-    margin: 750px 20px 20px -290px; 
-    padding: 10px;      
-    background-color: #333; 
-    border-radius: 20px;
-    box-shadow: 1px 4px 20px rgba(0, 0, 0, 0.9);
-}
-.publicidad6 {
-    float: left; 
-    margin: 1100px 0px 20px -290px; 
-    padding: 10px;      
-    background-color: #333; 
-    border-radius: 20px;
-    box-shadow: 1px 4px 20px rgba(0, 0, 0, 0.9);
-}
-.publicidad7 {
-    float: right; 
-    margin: 750px -290px 20px 20px; 
-    padding: 10px;      
-    background-color: #333; 
-    border-radius: 20px;
-    box-shadow: 1px 4px 20px rgba(0, 0, 0, 0.9);
-}
-.publicidad8 {
-    float: right; 
-    margin: 1100px -290px 20px 0px; 
-    padding: 10px;      
-    background-color: #333; 
-    border-radius: 20px;
-    box-shadow: 1px 4px 20px rgba(0, 0, 0, 0.9);
-}
-.streaming-list { 
+
+/* Estilos generales de los textos, listas, etc. */
+.streaming-list {
     list-style-type: none;
     padding: 10px;
     margin: 50px 400px 2px 400px;
@@ -103,6 +38,7 @@
     font-family: 'Bebas Neue', sans-serif;
     color: #5e5a5a;
 }
+
 .streaming-item {
     margin-bottom: 40px;
     text-align: center;
@@ -114,27 +50,14 @@
     font-family: 'Bebas Neue', sans-serif;
     color: #5e5a5a;
 }
-.sub-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    font-size: 16px;
-    text-shadow: -5px 2px 5px rgba(1, 0, 0, 0.2);
-    font-family: 'Bebas Neue', sans-serif;
-    color: #5e5a5a;
-}
+
 .streaming-link {
     text-decoration: none;
     color: #0077cc;
     font-weight: bold;
     font-family: 'Bebas Neue', sans-serif;
 }
+
 .streaming-link:hover {
     text-decoration: underline;
-}
-#p1 {
-    text-shadow: 5px 2px 5px rgba(1, 0, 0, 0.5);
-    margin: 32px 1050px -20px 130px ;
-    padding: 3px;
-    font-family: 'Bebas Neue', sans-serif; 
 }
