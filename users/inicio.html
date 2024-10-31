@@ -24,11 +24,11 @@
         <h2>Inicio de Sesión</h2>
         <form id="loginForm" class="form">
             <div class="form_group">
-                <label for="email" class="form_label">Correo Electronico:</label>
+                <label for="email">Correo Electronico:</label>
                 <input type="email" id="email" class="form_input" />
             </div>
             <div class="form_group">
-                <label for="password" class="form_label">Contrasenna:</label>
+                <label for="password">Contrasenna:</label>
                 <input type="password" id="password" class="form_input" />
             </div>
             <div>
@@ -46,9 +46,12 @@
             <li class="pie-item">lanin 2020</li>
             <li class="pie-item"><a href="http://tallerpweb.com.ar">tallerpweb.com.ar</a></li>
         </ul>
+        <link rel="stylesheet" href="../credenciales.js">
     </div>
 
     <script type="module">
+       /*import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+       import auth from "../credenciales.js";*/
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
         import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
 
@@ -67,8 +70,8 @@
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
 
-        document.getElementById('loginForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
+        document.getElementById('loginForm').addEventListener('submit', async (detect) => {
+            detect.preventDefault();
 
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
@@ -77,16 +80,16 @@
                 const userCredential = await signInWithEmailAndPassword(auth, email, password);
                 const user = userCredential.user;
                 document.getElementById('mensaje').textContent = `Bienvenido, ${user.email}`;
-                // Redireccionar a otra página si es necesario
-                // window.location.href = 'index.html';
+                window.location.href = '../CRUD/index.html';
             } catch (error) {
-                document.getElementById('mensaje').textContent = `Error: ${error.message}`;
+                console.error('error');
             }
         });
 
         document.getElementById('registroBtn').onclick = () => {
             window.location.href = '../users/registrerce.html';
         };
+        
     </script>
 </body>
 </html>

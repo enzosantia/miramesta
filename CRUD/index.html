@@ -12,13 +12,16 @@
     <link rel="stylesheet" type="text/css" href="stdStyle.css" />
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bungee+Spice&family=Dancing+Script&family=Roboto:wght@100&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../CSS/style.css">
-    <title>Tu Título Aquí</title>
+    <link rel="stylesheet" href="../CRUD/agregar/agregar.jsx">
+    <link rel="stylesheet" href="../CRUD/eliminar/eliminar.jsx">
+    <link rel="stylesheet" href="../CRUD/mostrst/mostrar.jsx">
+    <title>Admin Peliculas</title>
 </head>
 <body>
 <div id="contenedor">
     <div id="menu">
         <ul class="menu-list">
-            <li class="menu-item"><a href="form.html">Inicio Sesión</a></li>
+            <li class="menu-item"><a href="form.html">Inicio Sesion</a></li>
             <li class="menu-item"><a href="../index.html">Principal</a></li>
             <li class="menu-item"><a href="productos.html">Productos y Servicios</a></li>
             <li class="menu-item"><a href="CRUD/index.html">Sistema</a></li>
@@ -28,9 +31,9 @@
     <div id="contenido">
         <h2>Buscar</h2>
         <ul>
-            <li><button id="mostrarBtn">Mostrar Películas</button></li>
-            <li><button id="agregarBtn">Agregar Película</button></li>
-            <li><button id="eliminarBtn">Eliminar Película</button></li>
+            <li><button id="mostrarPeliculas">Mostrar Peliculas</button></li>
+            <li><button id="agregarBtn">Agregar Pelicula</button></li>
+            <li><button id="eliminarBtn">Eliminar Pelicula</button></li>
         </ul>
         <div id="resultados"></div>
     </div>        
@@ -61,48 +64,6 @@
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
-
-    // Mostrar películas
-    document.getElementById('mostrarBtn').onclick = async () => {
-        const peliculasRef = collection(db, "peliculas");
-        const snapshot = await getDocs(peliculasRef);
-        const resultadosDiv = document.getElementById('resultados');
-        resultadosDiv.innerHTML = ''; // Limpiar resultados anteriores
-
-        snapshot.forEach(doc => {
-            const item = document.createElement('p');
-            item.textContent = `${doc.data().titulo} - ${doc.data().duracion}`;
-            resultadosDiv.appendChild(item);
-        });
-    };
-
-    // Agregar película
-    document.getElementById('agregarBtn').onclick = async () => {
-        const titulo = prompt("Ingrese el título de la película:");
-        const duracion = prompt("Ingrese la duración de la película:");
-
-        if (titulo && duracion) {
-            await addDoc(collection(db, "peliculas"), {
-                titulo: titulo,
-                duracion: duracion
-            });
-            alert(`Película agregada: ${titulo}`);
-        } else {
-            alert("Título y duración son necesarios.");
-        }
-    };
-
-    // Eliminar película
-    document.getElementById('eliminarBtn').onclick = async () => {
-        const id = prompt("Ingrese el ID de la película a eliminar:");
-
-        if (id) {
-            await deleteDoc(doc(db, "peliculas", id));
-            alert(`Película eliminada: ID ${id}`);
-        } else {
-            alert("ID es necesario para eliminar.");
-        }
-    };
 </script>
 </body>
 </html>
