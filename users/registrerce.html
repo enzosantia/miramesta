@@ -1,0 +1,100 @@
+<!DOCTYPE html> 
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Registro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bungee+Spice&family=Dancing+Script&family=Roboto:wght@1,100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/Form.css">
+    <link rel="stylesheet" href="../CSS/style.css">
+</head>
+<body>
+    <div id="contenedor">
+        <div id="menu">
+            <ul class="menu-list">
+                <li class="menu-item"><a href="./inicio.html">Inicio Sesión</a></li>
+                <li class="menu-item"><a href="../index.html">Principal</a></li>
+                <li class="menu-item"><a href="productos.html">Productos y Servicios</a></li>
+                <li class="menu-item"><a href="acercade.html">Sobre Nosotros</a></li>
+            </ul>
+        </div>
+        <div id="contenido">
+            <div class="form">
+                <p class="form_title"> <b> REGISTRARSE </b> </p>
+                <div class="form_container">
+                    <div class="form_group">
+                        <input type="text" id="nombreDeUsuario" class="form_input" placeholder=" ">
+                        <label for="nombreDeUsuario" class="form_label"> Nombre de usuario: </label> 
+                    </div>
+                    <br>
+                    <div class="form_group">
+                        <input type="email" id="email" class="form_input" placeholder=" ">
+                        <label for="email" class="form_label"> Email: </label> 
+                    </div>
+                    <br>
+                    <div class="form_group">
+                        <input type="text" id="nombre" class="form_input" placeholder=" ">
+                        <label for="nombre" class="form_label"> Nombre: </label> <br>
+                    </div>
+                    <br>
+                    <div class="form_group">
+                        <input type="text" id="apellido" class="form_input" placeholder=" ">
+                        <label for="apellido" class="form_label"> Apellido: </label> <br>
+                    </div>
+                    <br>
+                    <div class="form_group">
+                        <input type="password" id="contraseña" class="form_input" placeholder=" ">
+                        <label for="contraseña" class="form_label"> Contraseña: </label> <br>
+                    </div>
+                    
+                    <input type="submit" id="registrarse" value="REGISTRARSE" class="form_submit">
+                </div>
+            </div>
+            <div id="pie">
+                <ul class="pie-list">
+                    <li class="pie-item">epet20@gmail.com</li>
+                    <li class="pie-item">4421345</li>
+                    <li class="pie-item">lanin 2020</li>
+                    <li class="pie-item"><a href="http://tallerpweb.com.ar">tallerpweb.com.ar</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAmZg851yKxO2FAPyGlzuKpyrtzqTBRY8Y",
+            authDomain: "mirameesta-91b7e.firebaseapp.com",
+            projectId: "mirameesta-91b7e",
+            storageBucket: "mirameesta-91b7e.appspot.com",
+            messagingSenderId: "1012336571139",
+            appId: "1:1012336571139:web:b02138d9c2c88e6675af36",
+            measurementId: "G-S34021V3E5"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        document.getElementById('registrarse').onclick = async (e) => {
+            e.preventDefault(); // Previene el envío del formulario
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('contraseña').value;
+
+            try {
+                const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                const user = userCredential.user;
+                alert('Usuario registrado con éxito: ' + user.email);
+                // Aquí puedes guardar otros datos en la base de datos si lo deseas
+            } catch (error) {
+                alert('Error al registrar: ' + error.message);
+            }
+        };
+    </script>
+</body>
+</html>

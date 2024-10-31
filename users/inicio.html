@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="ISO-8859-1" />
+    <meta name="generator" content="Dev-PHP 2.6.1" />
+    <meta name="keywords" content="your, keywords, here" />
+    <meta name="description" content="Inicio de sesión" />
+    <link rel="stylesheet" href="../CSS/Form.css">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <title>Inicio de Sesion</title>
+</head>
+<body>
+    <div id="contenedor">
+        <div id="menu">
+            <ul class="menu-list">
+                <li class="menu-item"><a href="./inicio.html">Inicio Sesion</a></li>
+                <li class="menu-item"><a href="../index.html">Principal</a></li>
+                <li class="menu-item"><a href="../html/productos.html">Productos y Servicios</a></li>
+                <li class="menu-item"><a href="../html/acercade.html">Sobre Nosotros</a></li>
+            </ul>
+        </div>
+
+        <h2>Inicio de Sesión</h2>
+        <form id="loginForm" class="form">
+            <div class="form_group">
+                <label for="email" class="form_label">Correo Electronico:</label>
+                <input type="email" id="email" class="form_input" />
+            </div>
+            <div class="form_group">
+                <label for="password" class="form_label">Contrasenna:</label>
+                <input type="password" id="password" class="form_input" />
+            </div>
+            <div>
+                <button type="submit" class="form_submit">Iniciar Sesion</button>
+                <button type="button" id="registroBtn" class="form_submit">Registrarse</button>
+            </div>
+        </form>
+        <div id="mensaje"></div>
+    </div>
+
+    <div id="pie">
+        <ul class="pie-list">
+            <li class="pie-item">epet20@gmail.com</li>
+            <li class="pie-item">4421345</li>
+            <li class="pie-item">lanin 2020</li>
+            <li class="pie-item"><a href="http://tallerpweb.com.ar">tallerpweb.com.ar</a></li>
+        </ul>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+
+        // Configuración de Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyAmZg851yKxO2FAPyGlzuKpyrtzqTBRY8Y",
+            authDomain: "mirameesta-91b7e.firebaseapp.com",
+            projectId: "mirameesta-91b7e",
+            storageBucket: "mirameesta-91b7e.appspot.com",
+            messagingSenderId: "1012336571139",
+            appId: "1:1012336571139:web:b02138d9c2c88e6675af36",
+            measurementId: "G-S34021V3E5"
+        };
+
+        // Inicializar Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                const userCredential = await signInWithEmailAndPassword(auth, email, password);
+                const user = userCredential.user;
+                document.getElementById('mensaje').textContent = `Bienvenido, ${user.email}`;
+                // Redireccionar a otra página si es necesario
+                // window.location.href = 'index.html';
+            } catch (error) {
+                document.getElementById('mensaje').textContent = `Error: ${error.message}`;
+            }
+        });
+
+        document.getElementById('registroBtn').onclick = () => {
+            window.location.href = '../users/registrerce.html';
+        };
+    </script>
+</body>
+</html>

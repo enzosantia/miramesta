@@ -1,50 +1,108 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<!-- @(#) $Id$ -->
-<head
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-	<meta name="Generator" content="Dev-PHP 2.6.1" />
-	<meta name="Keywords" content="your,keywords,here" />
-	<meta name="Description" content="." />
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="ISO-8859-1" />
+    <meta name="generator" content="Dev-PHP 2.6.1" />
+    <meta name="keywords" content="your, keywords, here" />
+    <meta name="description" content="." />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
 
-	<meta http-equiv="pragma" content="no-cache" />
-	<meta http-equiv="cache-control" content="no-cache" />
-
-	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-	<link rel="stylesheet" type="text/css" href="stdStyle.css" />
-	<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bungee+Spice&family=Dancing+Script&family=Roboto:ital,wght@1,100&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="../CSS/style.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="stdStyle.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bungee+Spice&family=Dancing+Script&family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <title>Tu Título Aquí</title>
 </head>
 <body>
 <div id="contenedor">
-	<div id="menu">
-		<ul class="menu-list">
-			<li class="menu-item"><a href="form.html">Inicio Sesion</a></li>
-			<li class="menu-item"><a href="../index.html">Principal</a></li>
-			<li class="menu-item"><a href="productos.html">Productos y servicios</a></li>
-			<li class="menu-item"><a href="CRUD/index.html">Sistema</a></li>
-			<li class="menu-item"><a href="acercade.html">Sobre nosotros</a></li>
-		</ul>
-	</div>
-	<div id="contenido">
-		<ul>
-			<li>buscar</li>
-			<ul>
-				<li><a href="mostrar/mostrar.php?opcion=1">Mostrar pelicula</a></li>
-				<li><a href="mostrar/mostrar.php?opcion=2">Mostrar usuario</a></li>
-				<li><a href="mostrar/mostrar.php?opcion=3">buscar por duracion de pelicula</a></li>
-			</ul>
-				<li><a href="agregar/form_agregar_usuario.php">Agregar</a></li>
-	</ul>
-	</div>
-	<div id="pie">
-		<ul class="pie-list">
-			<li class="pie-item">epet20@gmail.com</li>
-			<li class="pie-item">4421345</li>
-			<li class="pie-item">lanin 2020</li>
-		</ul>
-	</div>
+    <div id="menu">
+        <ul class="menu-list">
+            <li class="menu-item"><a href="form.html">Inicio Sesión</a></li>
+            <li class="menu-item"><a href="../index.html">Principal</a></li>
+            <li class="menu-item"><a href="productos.html">Productos y Servicios</a></li>
+            <li class="menu-item"><a href="CRUD/index.html">Sistema</a></li>
+            <li class="menu-item"><a href="acercade.html">Sobre Nosotros</a></li>
+        </ul>
+    </div>
+    <div id="contenido">
+        <h2>Buscar</h2>
+        <ul>
+            <li><button id="mostrarBtn">Mostrar Películas</button></li>
+            <li><button id="agregarBtn">Agregar Película</button></li>
+            <li><button id="eliminarBtn">Eliminar Película</button></li>
+        </ul>
+        <div id="resultados"></div>
+    </div>        
+    <div id="pie">
+        <ul class="pie-list">
+            <li class="pie-item">epet20@gmail.com</li>
+            <li class="pie-item">4421345</li>
+            <li class="pie-item">lanin 2020</li>
+        </ul>
+    </div>
 </div>
+
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+    import { getFirestore, collection, getDocs, addDoc, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+
+    // Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyAmZg851yKxO2FAPyGlzuKpyrtzqTBRY8Y",
+        authDomain: "mirameesta-91b7e.firebaseapp.com",
+        projectId: "mirameesta-91b7e",
+        storageBucket: "mirameesta-91b7e.appspot.com",
+        messagingSenderId: "1012336571139",
+        appId: "1:1012336571139:web:b02138d9c2c88e6675af36",
+        measurementId: "G-S34021V3E5"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // Mostrar películas
+    document.getElementById('mostrarBtn').onclick = async () => {
+        const peliculasRef = collection(db, "peliculas");
+        const snapshot = await getDocs(peliculasRef);
+        const resultadosDiv = document.getElementById('resultados');
+        resultadosDiv.innerHTML = ''; // Limpiar resultados anteriores
+
+        snapshot.forEach(doc => {
+            const item = document.createElement('p');
+            item.textContent = `${doc.data().titulo} - ${doc.data().duracion}`;
+            resultadosDiv.appendChild(item);
+        });
+    };
+
+    // Agregar película
+    document.getElementById('agregarBtn').onclick = async () => {
+        const titulo = prompt("Ingrese el título de la película:");
+        const duracion = prompt("Ingrese la duración de la película:");
+
+        if (titulo && duracion) {
+            await addDoc(collection(db, "peliculas"), {
+                titulo: titulo,
+                duracion: duracion
+            });
+            alert(`Película agregada: ${titulo}`);
+        } else {
+            alert("Título y duración son necesarios.");
+        }
+    };
+
+    // Eliminar película
+    document.getElementById('eliminarBtn').onclick = async () => {
+        const id = prompt("Ingrese el ID de la película a eliminar:");
+
+        if (id) {
+            await deleteDoc(doc(db, "peliculas", id));
+            alert(`Película eliminada: ID ${id}`);
+        } else {
+            alert("ID es necesario para eliminar.");
+        }
+    };
+</script>
 </body>
 </html>
-		
