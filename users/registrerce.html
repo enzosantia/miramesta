@@ -63,7 +63,7 @@
 
     <script type="module">
         import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
-        /*import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
         import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
 
         // Firebase configuration
@@ -79,7 +79,7 @@
 
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);*/
+        const auth = getAuth(app);
 
         document.getElementById('registrarse').onclick = async (e) => {
             e.preventDefault(); // Previene el envío del formulario

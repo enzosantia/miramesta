@@ -1,9 +1,8 @@
-// agregar.js
 import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
 
 const db = getFirestore();
 
-async function agregarPelicula(titulo, duracion) {
+export async function agregarPelicula(titulo, duracion) {
     try {
         const docRef = await addDoc(collection(db, "peliculas"), {
             titulo: titulo,
@@ -14,6 +13,3 @@ async function agregarPelicula(titulo, duracion) {
         console.error("Error al agregar película: ", e);
     }
 }
-
-// Ejemplo de uso: agregar una película
-agregarPelicula("Avatar", "162 min");

@@ -1,9 +1,8 @@
-// mostrar.js
 import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
 
 const db = getFirestore();
 
-async function mostrarPeliculas() {
+export async function mostrarPeliculas() {
     const peliculasRef = collection(db, "peliculas");
     const snapshot = await getDocs(peliculasRef);
     const lista = document.createElement('ul');
@@ -14,8 +13,7 @@ async function mostrarPeliculas() {
         lista.appendChild(item);
     });
 
-    document.body.appendChild(lista);
+    const resultadosDiv = document.getElementById("resultados");
+    resultadosDiv.innerHTML = "";
+    resultadosDiv.appendChild(lista);
 }
-
-// Llama a la función cuando se carga el script
-mostrarPeliculas();

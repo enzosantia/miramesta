@@ -7,14 +7,11 @@
     <meta name="description" content="." />
     <meta http-equiv="pragma" content="no-cache" />
     <meta http-equiv="cache-control" content="no-cache" />
-
+    <link rel="stylesheet" href="../CSS/Form.css">
+    <link rel="stylesheet" href="../CSS/style.css"> 
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" type="text/css" href="stdStyle.css" />
+    
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bungee+Spice&family=Dancing+Script&family=Roboto:wght@100&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../CSS/style.css">
-    <link rel="stylesheet" href="../CRUD/agregar/agregar.jsx">
-    <link rel="stylesheet" href="../CRUD/eliminar/eliminar.jsx">
-    <link rel="stylesheet" href="../CRUD/mostrst/mostrar.jsx">
     <title>Admin Peliculas</title>
 </head>
 <body>
@@ -32,8 +29,8 @@
         <h2>Buscar</h2>
         <ul>
             <li><button id="mostrarPeliculas">Mostrar Peliculas</button></li>
-            <li><button id="agregarBtn">Agregar Pelicula</button></li>
-            <li><button id="eliminarBtn">Eliminar Pelicula</button></li>
+            <li><button id="agregarPL">Agregar Pelicula</button></li>
+            <li><button id="eliminarPL">Eliminar Pelicula</button></li>
         </ul>
         <div id="resultados"></div>
     </div>        
@@ -48,9 +45,9 @@
 
 <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
-    import { getFirestore, collection, getDocs, addDoc, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+    import { getFirestore, collection, getDocs, addDoc, updateDoc, doc } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
 
-    // Firebase configuration
+    // Configuración de Firebase
     const firebaseConfig = {
         apiKey: "AIzaSyAmZg851yKxO2FAPyGlzuKpyrtzqTBRY8Y",
         authDomain: "mirameesta-91b7e.firebaseapp.com",
@@ -61,9 +58,108 @@
         measurementId: "G-S34021V3E5"
     };
 
-    // Initialize Firebase
+    // Inicializar Firebase
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
+
+    // Función para mostrar solo las películas activas (con estado `true`)
+    async function mostrarPeliculas() {
+        const peliculasRef = collection(db, "peliculas");
+        const snapshot = await getDocs(peliculasRef);
+        const resultados = document.getElementById("resultados");
+        resultados.innerHTML = ""; // Limpia el contenido previo
+
+        const lista = document.createElement("ul");
+        snapshot.forEach(doc => {
+            const pelicula = doc.data();
+            if (pelicula.estado === true) { 
+                const item = document.createElement("li");
+                item.textContent = `${pelicula.titulo} - ${pelicula.duracion}`;
+                lista.appendChild(item);
+            }
+        });
+        resultados.appendChild(lista);
+    }
+
+    // Función para agregar una nueva película
+    async function agregarPelicula(titulo, duracion) {
+        try {
+            await addDoc(collection(db, "peliculas"), {
+                titulo: titulo,
+                duracion: duracion,
+                estado: true
+            });
+            alert("Pelicula agregada con exito");
+            mostrarPeliculas();
+        } catch (e) {
+            console.error("Error al agregar la pelicula: ", e);
+        }
+    }
+
+    // Función para dar de baja una película (establece `estado` a `false`)
+    async function eliminarPelicula(titulo) {
+    const peliculasRef = collection(db, "peliculas");
+    const snapshot = await getDocs(peliculasRef);
+
+    let peliculaModificada = false;  // Variable para rastrear si la película fue modificada
+
+    // Reemplazamos forEach por for...of para manejar correctamente la asincronía
+    for (const docSnap of snapshot.docs) {
+        const pelicula = docSnap.data();
+        const docRef = doc(db, "peliculas", docSnap.id);
+
+        if (pelicula.titulo === titulo) {
+            try {
+                if (pelicula.estado === true) {
+                    // Si la película está activa, la desactivamos (la eliminamos)
+                    await updateDoc(docRef, { estado: false });
+                    peliculaModificada = true;  // Indicamos que la película fue desactivada
+                    alert(`Pelicula "${titulo}" eliminada con exito.`);
+                    break;  // Salimos del bucle una vez que encontramos y modificamos la película
+                } else if (pelicula.estado === false) {
+                    // Si la película está eliminada (estado false), la reactivamos
+                    await updateDoc(docRef, { estado: true });
+                    peliculaModificada = true;  // Indicamos que la película fue reactivada
+                    alert(`Pelicula "${titulo}" restaurada con exito.`);
+                    break;  // Salimos del bucle una vez que encontramos y modificamos la película
+                }
+            } catch (error) {
+                console.error("Error al actualizar el estado:", error);
+                alert("No se pudo actualizar el estado.");
+                return; // Si ocurre un error, detenemos la función
+            }
+        }
+    }
+
+    // Mensaje cuando no se encuentra la película o si no fue modificada
+    if (!peliculaModificada) {
+        alert(`No se encontro la pelicula "${titulo}" o ya tiene el estado esperado.`);
+    }
+
+    // Actualizamos la lista de películas después de cualquier modificación
+    mostrarPeliculas();  
+    }
+
+    // Asocia los botones a las funciones
+    document.getElementById("mostrarPeliculas").addEventListener("click", () => {
+        mostrarPeliculas();
+    });
+
+    document.getElementById("agregarPL").addEventListener("click", () => {
+        const titulo = prompt("Ingrese el titulo de la pelicula:");
+        const duracion = prompt("Ingrese la duracion de la pelicula (en minutos):");
+        if (titulo && duracion) {
+            agregarPelicula(titulo, duracion);
+        }
+    });
+
+    document.getElementById("eliminarPL").addEventListener("click", () => {
+        const titulo = prompt("Ingrese el titulo de la pelicula a eliminar:");
+        if (titulo) {
+            eliminarPelicula(titulo);
+        }
+    });
 </script>
+
 </body>
 </html>
