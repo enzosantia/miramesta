@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bungee+Spice&family=Dancing+Script&family=Roboto:ital,wght@1,100&display=swap");
 
-.form{
+.form {
     background-color: white;
     border-radius: 10px;
     padding: 4.5em 2em;
@@ -9,6 +9,9 @@
     width: 400px;
     margin-top: 30px;
     margin-bottom: 30px;
+    /* Puedes agregar este margen opcionalmente para ajustarlo */
+    margin-left: auto;
+    margin-right: auto;
 }
 .form_title{
     font-size: 2rem;

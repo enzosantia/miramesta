@@ -61,3 +61,61 @@
 .streaming-link:hover {
     text-decoration: underline;
 }
+#carrito-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #333; 
+    border-radius: 10px;
+    box-shadow: 0 1px 8px rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    width: 100%;
+    max-width: 400px; /* Ajuste opcional para tamaño máximo */
+    margin: 0 auto; /* Centra el contenedor si es necesario */
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+#carrito-container h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#carrito-container ul {
+    list-style: none;
+    padding: 0;
+    width: 100%; /* Ocupar todo el ancho del contenedor */
+    text-align: left;
+}
+
+#total {
+    font-size: 18px;
+    margin: 15px 0;
+    font-weight: bold;
+}
+
+/* Botón reajustable para el carrito */
+.boton-reajustable {
+    padding: 0.5em 1em;
+    font-size: 16px; /* Tamaño de fuente ajustado */
+    color: #ffffff;
+    background: linear-gradient(135deg, #7b2cbf, #5a189a);
+    border: 3px solid #ffffff;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 5px 5px 5px rgba(64, 2, 233, 0.2);
+    width: 80%; /* Ajuste de ancho para que se vea más integrado */
+    max-width: 250px; /* Limita el tamaño máximo del botón */
+    text-align: center;
+    margin-top: 10px;
+}
+
+.boton-reajustable:hover {
+    background: linear-gradient(135deg, #9d4edd, #5a189a);
+    transform: scale(1.05);
+}
+
+.boton-reajustable:active {
+    transform: scale(0.95);
+}
